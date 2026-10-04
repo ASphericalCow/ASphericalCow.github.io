@@ -1,0 +1,159 @@
+:root {
+  color-scheme: light;
+  --bg: #ffffff;
+  --text: #1f2328;
+  --muted: #5f6670;
+  --rule: #e6e8eb;
+  --accent: #1a5fb4;       /* close to RoyalBlue in the LaTeX CV */
+  --accent-soft: #e8f0fa;
+  --maxw: 44rem;
+}
+
+* { box-sizing: border-box; }
+html { font-size: 17px; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Charter", "Bitstream Charter", "Iowan Old Style", Georgia, serif;
+  line-height: 1.6;
+}
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+header.site {
+  border-bottom: 1px solid var(--rule);
+}
+header.site .inner, main, footer {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+header.site .inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: .5rem 1.5rem;
+  padding-top: 1.25rem;
+  padding-bottom: 1rem;
+}
+.name {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text);
+}
+nav a {
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+  font-size: .85rem;
+  letter-spacing: .02em;
+  color: var(--muted);
+}
+nav { display: flex; flex-wrap: wrap; gap: .3rem 1.1rem; }
+nav a { white-space: nowrap; display: inline-block; }
+nav a[aria-current="page"] { color: var(--accent); }
+
+main { padding-top: 2.25rem; padding-bottom: 3rem; }
+h1 { font-size: 1.6rem; font-weight: 600; margin: 0 0 1rem; }
+h2 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin: 2.25rem 0 .75rem;
+  padding-bottom: .3rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+/* Home */
+.intro {
+  display: flex;
+  gap: 1.75rem;
+  align-items: flex-end;
+  margin-bottom: 1.75rem;
+}
+.intro h1 { margin-bottom: .9rem; }
+.portrait {
+  display: block;
+  width: 190px;
+  height: auto;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+.role { color: var(--muted); margin: 0 0 .5rem; line-height: 1.45; }
+.links {
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+  font-size: .85rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: .4rem 1rem;
+  margin-top: 1.25rem;
+}
+@media (max-width: 560px) {
+  .intro { flex-direction: column; align-items: flex-start; gap: 1rem; }
+  .portrait { width: 150px; }
+  nav { gap: .3rem .9rem; }
+}
+
+/* Lists */
+ul.plain { list-style: none; padding: 0; margin: 0; }
+ul.plain li { margin-bottom: 1rem; }
+ul.plain.compact { display: flex; flex-wrap: wrap; gap: .3rem 1.4rem; }
+ul.plain.compact li { margin: 0; }
+ul.plain.tight li { margin-bottom: .3rem; }
+ul.plain.tight .title { display: inline-block; min-width: 6.5rem; }
+ul.plain.tight .ref { display: inline; }
+h3 { font-size: .98rem; font-weight: 600; margin: 1.6rem 0 .3rem; }
+h3 + .note { margin-top: 0; }
+.title { font-weight: 600; }
+.authors, .ref { display: block; color: var(--muted); font-size: .92rem; }
+.authors strong { color: var(--text); font-weight: 600; }
+.ref a { margin-right: .6rem; }
+.tag {
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+  font-size: .7rem;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  background: var(--accent-soft);
+  color: var(--accent);
+  border-radius: 3px;
+  padding: .05rem .35rem;
+  margin-left: .35rem;
+  vertical-align: .1em;
+}
+.note { color: var(--muted); font-size: .92rem; }
+
+footer {
+  color: var(--muted);
+  font-size: .8rem;
+  padding-bottom: 2rem;
+}
+
+/* Research page: text beside a picture, alternating sides */
+.row {
+  display: flex;
+  gap: 1.75rem;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+.row.flip { flex-direction: row-reverse; }
+.row .text { flex: 1; min-width: 0; }
+.row .text p:first-child { margin-top: 0; }
+figure.pic { flex: 0 0 280px; margin: 0; }
+figure.pic img {
+  display: block;
+  width: 280px;
+  height: 250px;
+  object-fit: contain;
+  background: #fff;
+  box-sizing: border-box;
+}
+figcaption { color: var(--muted); font-size: .78rem; line-height: 1.4; margin-top: .45rem; }
+.relevant { font-size: .9rem; color: var(--muted); }
+@media (max-width: 640px) {
+  .row, .row.flip { flex-direction: column; }
+  figure.pic { flex-basis: auto; width: 100%; }
+  figure.pic img { width: 100%; height: 240px; }
+}
+
+/* Recent papers on the home page */
+ol.recent { list-style: none; padding: 0; margin: 0; }
+ol.recent li { margin-bottom: .9rem; }
