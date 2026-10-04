@@ -6,7 +6,7 @@
   --rule: #e6e8eb;
   --accent: #1a5fb4;       /* close to RoyalBlue in the LaTeX CV */
   --accent-soft: #e8f0fa;
-  --maxw: 44rem;
+  --maxw: 50rem;
 }
 
 * { box-sizing: border-box; }
@@ -146,13 +146,22 @@ figure.pic img {
   background: #fff;
   box-sizing: border-box;
 }
+/* intro: the Venn diagram floats right and the text wraps around it */
+.intro-wrap::after { content: ""; display: block; clear: both; }
+.intro-wrap p:first-of-type { margin-top: 0; }
+figure.pic.big { float: right; width: 420px; margin: .2rem 0 .8rem 1.75rem; }
+figure.pic.big img { width: 100%; height: auto; }
 figcaption { color: var(--muted); font-size: .78rem; line-height: 1.4; margin-top: .45rem; }
 .relevant { font-size: .9rem; color: var(--muted); }
 @media (max-width: 640px) {
   .row, .row.flip { flex-direction: column; }
   figure.pic { flex-basis: auto; width: 100%; }
   figure.pic img { width: 100%; height: 240px; }
+  figure.pic.big { float: none; width: 100%; margin: 0 0 1rem; }
 }
+
+ul.questions { margin: -.4rem 0 1rem; padding-left: 1.3rem; }
+ul.questions li { margin-bottom: .45rem; }
 
 /* Recent papers on the home page */
 ol.recent { list-style: none; padding: 0; margin: 0; }
